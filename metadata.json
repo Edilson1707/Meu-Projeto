@@ -1,0 +1,6 @@
+{
+  "name": "Só Padrões - Fábrica em Goiânia",
+  "description": "Fábrica de Padrões de Energia em Goiânia: Economia Direta da Fábrica e Aprovação Garantida Equatorial Goiás. Monofásicos, bifásicos e trifásicos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

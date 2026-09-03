@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --color-electric: #0056b3;
+  --color-electric-dark: #004494;
+  --color-safety: #FFD700;
+  --color-safety-hover: #F5CC00;
+  --color-surface: #F8FAFC;
+  --color-slate-dark: #1E293B;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1E293B;
+  background-color: #DCE1E7;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(255, 255, 255, 0.7) 0px, transparent 55%),
+    radial-gradient(at 85% 45%, rgba(195, 205, 218, 0.5) 0px, transparent 50%),
+    radial-gradient(at 30% 85%, rgba(255, 255, 255, 0.5) 0px, transparent 55%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Glassmorphism utility with silver frosted tint */
+.glass-header {
+  background: rgba(226, 232, 240, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Pulse animation for WhatsApp */
+@keyframes soft-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: soft-pulse 2.2s infinite;
+}
+
