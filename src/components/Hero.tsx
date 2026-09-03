@@ -3,8 +3,7 @@ import gsap from 'gsap';
 import { ShieldCheck, ArrowRight, CheckCircle2, Factory, Zap, Clock, Award } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
-import heroBgImage from '../assets/images/fachada_fundo_loja_real_1788454600037.jpg';
-import productFeaturedImage from '../assets/images/padrao_trifasico_1788448860161.jpg';
+import heroStorefrontImage from '../assets/images/fachada_fundo_loja_real_1788454600037.jpg';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,19 +45,12 @@ export const Hero: React.FC = () => {
       ref={heroRef} 
       className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 bg-slate-950 text-white"
     >
-      {/* Real storefront photo background - clearly visible below the header */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={heroBgImage}
-          alt="Fachada da fábrica Só Padrões em Goiânia"
-          className="w-full h-full object-cover object-center sm:object-[center_30%] filter brightness-[0.78] contrast-[1.06]"
-        />
-        {/* Protective gradient overlay: darker on text area for 100% legibility, translucent across center/right to reveal storefront and sign */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/80 to-slate-950/50 sm:from-slate-950/95 sm:via-slate-950/78 sm:to-slate-900/40" />
-        <div className="absolute inset-0 bg-blue-950/15 mix-blend-overlay pointer-events-none" />
+      {/* Clean industrial backdrop */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-gradient-to-b from-slate-950 via-[#0a192f] to-slate-950">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,86,179,0.3),rgba(255,255,255,0))]" />
       </div>
 
-      {/* Subtle industrial grid line pattern */}
+      {/* Precision grid pattern */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
@@ -166,41 +158,41 @@ export const Hero: React.FC = () => {
                 <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                    <span className="font-bold text-[#FFD700] uppercase tracking-wider">Padrão Homologado</span>
+                    <span className="font-bold text-[#FFD700] uppercase tracking-wider">Fábrica & Loja Só Padrões</span>
                   </div>
                   <span className="px-2 py-0.5 rounded bg-blue-950/80 border border-blue-400/30 text-blue-200 text-[11px] font-semibold">
-                    Equatorial Goiás
+                    Sede Própria em Goiânia
                   </span>
                 </div>
 
                 {/* Visual Image Container */}
-                <div className="relative mt-3 rounded-xl overflow-hidden bg-slate-950 border border-white/10 aspect-[4/3]">
+                <div className="relative mt-3 rounded-xl overflow-hidden bg-slate-950 border border-white/10 aspect-[16/10]">
                   <img
-                    src={productFeaturedImage}
-                    alt="Padrão de Entrada Homologado Equatorial Goiás montado pela Só Padrões"
+                    src={heroStorefrontImage}
+                    alt="Fachada da loja e fábrica Só Padrões em Goiânia - Av. Mangabeiras, 967"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-top"
                     loading="eager"
                   />
                   <div className="absolute bottom-2 left-2 right-2 bg-slate-950/85 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center justify-between text-xs">
-                    <span className="font-semibold text-white">Montado Pronto para Instalação</span>
-                    <span className="text-emerald-400 font-bold">100% Aprovado</span>
+                    <span className="font-semibold text-white">Av. Mangabeiras, 967</span>
+                    <span className="text-emerald-400 font-bold">Atendimento Presencial</span>
                   </div>
                 </div>
 
                 {/* Micro tech specs bar under hero image */}
                 <div className="mt-3.5 grid grid-cols-3 gap-2 text-center text-xs">
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <span className="block font-bold text-[#FFD700]">Norma NDU-001</span>
-                    <span className="text-[11px] text-slate-400">Equatorial GO</span>
+                    <span className="block font-bold text-[#FFD700]">Direto da Fábrica</span>
+                    <span className="text-[11px] text-slate-400">Sem Intermediários</span>
                   </div>
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <span className="block font-bold text-blue-300">Aço Galvanizado</span>
-                    <span className="text-[11px] text-slate-400">Anti-Corrosão</span>
+                    <span className="block font-bold text-blue-300">Pronta Entrega</span>
+                    <span className="text-[11px] text-slate-400">Estoque Completo</span>
                   </div>
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <span className="block font-bold text-emerald-400">24h Pronta</span>
-                    <span className="text-[11px] text-slate-400">Entrega Goiânia</span>
+                    <span className="block font-bold text-emerald-400">Retirada Rápida</span>
+                    <span className="text-[11px] text-slate-400">Estacionamento Fácil</span>
                   </div>
                 </div>
 
@@ -212,7 +204,7 @@ export const Hero: React.FC = () => {
                   className="mt-3.5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0056b3] hover:bg-[#004494] text-white text-xs sm:text-sm font-bold transition-all border border-blue-400/40 shadow-md cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4 text-[#FFD700]" />
-                  <span>Pedir Orçamento Deste Padrão</span>
+                  <span>Falar com Atendimento da Loja</span>
                 </a>
 
               </div>
