@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ShieldCheck, ArrowRight, CheckCircle2, Factory, Zap, Clock, Award, Camera, Upload, RefreshCw } from 'lucide-react';
+import { ShieldCheck, ArrowRight, CheckCircle2, Factory, Zap, Clock, Award } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
-import heroImageDefault from '../assets/images/fachada_loja_sopadroes_1788449498232.jpg';
+import heroBgImage from '../assets/images/fachada_fundo_loja_real_1788454600037.jpg';
+import productFeaturedImage from '../assets/images/padrao_trifasico_1788448860161.jpg';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -12,41 +13,10 @@ export const Hero: React.FC = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageCardRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const [photoSrc, setPhotoSrc] = useState<string>(() => {
-    return localStorage.getItem('sopadroes_original_photo') || heroImageDefault;
-  });
-  const [isDragOver, setIsDragOver] = useState(false);
-
-  const handleFileSelect = (file: File) => {
-    if (!file.type.startsWith('image/')) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const dataUrl = e.target?.result as string;
-      if (dataUrl) {
-        setPhotoSrc(dataUrl);
-        try {
-          localStorage.setItem('sopadroes_original_photo', dataUrl);
-        } catch (err) {
-          console.warn('LocalStorage limit exceeded', err);
-        }
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragOver(false);
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      handleFileSelect(e.dataTransfer.files[0]);
-    }
-  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Stagger reveal animation for Hero elements as requested
+      // Stagger reveal animation for Hero elements
       const elements = [
         badgeRef.current,
         titleRef.current,
@@ -56,10 +26,10 @@ export const Hero: React.FC = () => {
       ].filter(Boolean);
 
       gsap.from(elements, {
-        y: 50,
+        y: 40,
         opacity: 0,
-        duration: 0.9,
-        stagger: 0.15,
+        duration: 0.85,
+        stagger: 0.12,
         ease: 'power3.out',
       });
     }, heroRef);
@@ -72,63 +42,84 @@ export const Hero: React.FC = () => {
   );
 
   return (
-    <section ref={heroRef} className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 bg-gradient-to-b from-[#DCE1E7] via-[#E6EBF0] to-[#D5DBE2]">
-      {/* Precision grid pattern background */}
+    <section 
+      ref={heroRef} 
+      className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 bg-slate-950 text-white"
+    >
+      {/* Real storefront photo background - clearly visible below the header */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
+          src={heroBgImage}
+          alt="Fachada da fábrica Só Padrões em Goiânia"
+          className="w-full h-full object-cover object-center sm:object-[center_30%] filter brightness-[0.78] contrast-[1.06]"
+        />
+        {/* Protective gradient overlay: darker on text area for 100% legibility, translucent across center/right to reveal storefront and sign */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/80 to-slate-950/50 sm:from-slate-950/95 sm:via-slate-950/78 sm:to-slate-900/40" />
+        <div className="absolute inset-0 bg-blue-950/15 mix-blend-overlay pointer-events-none" />
+      </div>
+
+      {/* Subtle industrial grid line pattern */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
-          backgroundImage: 'radial-gradient(#0056b3 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
+          backgroundImage: 'radial-gradient(#FFD700 1px, transparent 1px)',
+          backgroundSize: '28px 28px'
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Semantic & Persuasive Copy */}
           <div className="lg:col-span-7 space-y-6">
             
             {/* Trust badge */}
-            <div ref={badgeRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#0056b3] text-xs font-semibold tracking-wide uppercase">
-              <Factory className="w-3.5 h-3.5 text-[#0056b3]" />
+            <div 
+              ref={badgeRef} 
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-400/40 text-blue-200 text-xs font-semibold tracking-wide uppercase backdrop-blur-md shadow-sm"
+            >
+              <Factory className="w-3.5 h-3.5 text-[#FFD700]" />
               <span>Direto da Fábrica em Goiânia</span>
               <span className="w-1 h-1 rounded-full bg-blue-400"></span>
-              <span className="text-slate-600">Sem Intermediários</span>
+              <span className="text-slate-300">Sem Intermediários</span>
             </div>
 
             {/* H1 Semantic SEO */}
-            <h1 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#1E293B] leading-[1.15]">
+            <h1 
+              ref={titleRef} 
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-md"
+            >
               Fábrica de Padrões de Energia em Goiânia: <br className="hidden sm:inline" />
-              <span className="text-[#0056b3]">Economia Direta da Fábrica</span> e <span className="underline decoration-[#FFD700] decoration-4 underline-offset-4">Aprovação Garantida</span>.
+              <span className="text-[#FFD700]">Economia Direta da Fábrica</span> e <span className="underline decoration-[#FFD700] decoration-4 underline-offset-4 text-blue-300">Aprovação Garantida</span>.
             </h1>
 
             {/* Persuasive Headline & Subheadline */}
             <div ref={headlineRef} className="space-y-3">
-              <p className="font-heading text-lg sm:text-xl font-bold text-slate-800 flex items-center gap-2">
+              <p className="font-heading text-lg sm:text-xl font-bold text-slate-100 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FFD700]"></span>
                 A Segurança de quem Fabrica. A Precisão de quem Projeta.
               </p>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
-                Padrões monofásicos, bifásicos e trifásicos em Goiânia, desenvolvidos sob medida e 100% em conformidade com as normas da <strong className="text-slate-900 font-semibold">Equatorial Goiás</strong>. Evite atrasos de ligação e reprovações na vistoria.
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
+                Padrões monofásicos, bifásicos e trifásicos em Goiânia, desenvolvidos sob medida e 100% em conformidade com as normas da <strong className="text-white font-semibold">Equatorial Goiás</strong>. Evite atrasos de ligação e reprovações na vistoria.
               </p>
             </div>
 
             {/* Quick value bullets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-700 font-medium">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-200 font-medium">
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Pronta entrega em Goiânia e Região</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Norma NDU-001 Equatorial 100% cumprida</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Caixas em Policarbonato Anti-UV e Aço</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Suporte técnico de engenharia com ART</span>
               </div>
             </div>
@@ -140,7 +131,7 @@ export const Hero: React.FC = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-base shadow-xl shadow-emerald-900/25 transition-all transform hover:-translate-y-0.5 active:scale-98 min-h-[52px]"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-base shadow-xl shadow-emerald-950/40 transition-all transform hover:-translate-y-0.5 active:scale-98 min-h-[52px]"
               >
                 <WhatsAppIcon className="w-5 h-5 text-white shrink-0" />
                 <span>Solicitar Orçamento via WhatsApp</span>
@@ -148,17 +139,17 @@ export const Hero: React.FC = () => {
 
               <a
                 href="#produtos"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base transition-all hover:border-[#0056b3] min-h-[52px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base backdrop-blur-sm transition-all hover:border-[#FFD700] min-h-[52px]"
               >
                 <span>Ver Catálogo Técnico</span>
-                <ArrowRight className="w-4 h-4 text-[#0056b3]" />
+                <ArrowRight className="w-4 h-4 text-[#FFD700]" />
               </a>
             </div>
 
             {/* Local Physical Address reminder */}
-            <div className="pt-2 text-xs text-slate-500 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>Retirada imediata na fábrica: <strong>Av. Mangabeiras, 967 - Goiânia</strong> ou entrega no local da sua obra.</span>
+            <div className="pt-2 text-xs text-slate-300 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Retirada imediata na fábrica: <strong className="text-white">Av. Mangabeiras, 967 - Goiânia</strong> ou entrega no local da sua obra.</span>
             </div>
 
           </div>
@@ -167,91 +158,62 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-5" ref={imageCardRef}>
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Decorative engineering frame */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0056b3] via-blue-600 to-[#FFD700] rounded-2xl opacity-30 blur-sm"></div>
+              {/* Decorative engineering glow frame */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0056b3] via-blue-500 to-[#FFD700] rounded-2xl opacity-50 blur-sm"></div>
               
-              <div className="relative rounded-2xl bg-white p-3 shadow-2xl border border-slate-200 overflow-hidden">
+              <div className="relative rounded-2xl bg-slate-900/90 backdrop-blur-md p-4 sm:p-5 shadow-2xl border border-white/20 overflow-hidden">
                 
-                {/* Visual Image Container */}
-                <div 
-                  className={`relative rounded-xl overflow-hidden bg-slate-900 group cursor-pointer transition-all ${isDragOver ? 'ring-4 ring-[#0056b3] ring-offset-2' : ''}`}
-                  onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
-                  onDragLeave={() => setIsDragOver(false)}
-                  onDrop={handleDrop}
-                  onClick={() => fileInputRef.current?.click()}
-                  title="Clique para carregar a foto original exata do seu dispositivo"
-                >
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files[0]) {
-                        handleFileSelect(e.target.files[0]);
-                      }
-                    }}
-                  />
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span className="font-bold text-[#FFD700] uppercase tracking-wider">Padrão Homologado</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-blue-950/80 border border-blue-400/30 text-blue-200 text-[11px] font-semibold">
+                    Equatorial Goiás
+                  </span>
+                </div>
 
-                  {/* Real Photo Element - clean, un-darkened, full natural clarity */}
+                {/* Visual Image Container */}
+                <div className="relative mt-3 rounded-xl overflow-hidden bg-slate-950 border border-white/10 aspect-[4/3]">
                   <img
-                    src={photoSrc}
-                    alt="Fachada da loja e fábrica Só Padrões em Goiânia"
+                    src={productFeaturedImage}
+                    alt="Padrão de Entrada Homologado Equatorial Goiás montado pela Só Padrões"
                     referrerPolicy="no-referrer"
-                    className="w-full h-auto max-h-[580px] object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
-
-                  {/* Clean controls for uploading/restoring the original photo */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1.5 z-10" onClick={(e) => e.stopPropagation()}>
-                    <button
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0056b3] hover:bg-[#004494] text-white text-xs font-bold shadow-lg transition-all border border-blue-400 cursor-pointer"
-                      title="Selecione o arquivo 'WhatsApp Image...' do seu dispositivo"
-                    >
-                      <Camera className="w-4 h-4 text-[#FFD700]" />
-                      <span>Usar Foto Original Enviada</span>
-                    </button>
-                    {localStorage.getItem('sopadroes_original_photo') && (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          localStorage.removeItem('sopadroes_original_photo');
-                          setPhotoSrc(heroImageDefault);
-                        }}
-                        className="p-1.5 rounded-lg bg-white/90 hover:bg-white text-slate-600 hover:text-red-600 shadow transition-all cursor-pointer"
-                        title="Restaurar padrão"
-                      >
-                        <RefreshCw className="w-3.5 h-3.5" />
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Subtle hover guide overlay */}
-                  <div className="absolute bottom-0 inset-x-0 bg-slate-900/80 backdrop-blur-sm p-2 text-center text-xs text-white opacity-90 group-hover:opacity-100 transition-opacity">
-                    <p className="flex items-center justify-center gap-1.5 font-medium">
-                      <Upload className="w-3.5 h-3.5 text-[#FFD700]" />
-                      <span>Clique na foto para selecionar o arquivo original <strong>WhatsApp Image</strong></span>
-                    </p>
+                  <div className="absolute bottom-2 left-2 right-2 bg-slate-950/85 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center justify-between text-xs">
+                    <span className="font-semibold text-white">Montado Pronto para Instalação</span>
+                    <span className="text-emerald-400 font-bold">100% Aprovado</span>
                   </div>
                 </div>
 
                 {/* Micro tech specs bar under hero image */}
-                <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
-                  <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-                    <span className="block font-bold text-slate-900">Norma NDU-001</span>
-                    <span className="text-[11px] text-slate-500">Equatorial Goiás</span>
+                <div className="mt-3.5 grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                    <span className="block font-bold text-[#FFD700]">Norma NDU-001</span>
+                    <span className="text-[11px] text-slate-400">Equatorial GO</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-                    <span className="block font-bold text-[#0056b3]">Aço Galvanizado</span>
-                    <span className="text-[11px] text-slate-500">Anti-Corrosão</span>
+                  <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                    <span className="block font-bold text-blue-300">Aço Galvanizado</span>
+                    <span className="text-[11px] text-slate-400">Anti-Corrosão</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-                    <span className="block font-bold text-emerald-600">24h Pronta</span>
-                    <span className="text-[11px] text-slate-500">Entrega Goiânia</span>
+                  <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                    <span className="block font-bold text-emerald-400">24h Pronta</span>
+                    <span className="text-[11px] text-slate-400">Entrega Goiânia</span>
                   </div>
                 </div>
+
+                {/* Fast quotation CTA in card */}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3.5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0056b3] hover:bg-[#004494] text-white text-xs sm:text-sm font-bold transition-all border border-blue-400/40 shadow-md cursor-pointer"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-[#FFD700]" />
+                  <span>Pedir Orçamento Deste Padrão</span>
+                </a>
 
               </div>
 
