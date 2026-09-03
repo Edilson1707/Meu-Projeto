@@ -6,6 +6,7 @@ interface SoPadroesLogoProps {
   theme?: 'light' | 'dark';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   showSubtitle?: boolean;
+  subtitle?: string;
 }
 
 export const SoPadroesLogo: React.FC<SoPadroesLogoProps> = ({
@@ -14,6 +15,7 @@ export const SoPadroesLogo: React.FC<SoPadroesLogoProps> = ({
   theme = 'light',
   size = 'md',
   showSubtitle = true,
+  subtitle = 'Fabricação de Padrões de Medição e Desenvolvimentos de Projetos Elétricos',
 }) => {
   const textColor = theme === 'dark' ? '#FFFFFF' : '#0F172A';
   const subtitleColor = theme === 'dark' ? 'text-slate-400' : 'text-slate-500';
@@ -140,13 +142,14 @@ export const SoPadroesLogo: React.FC<SoPadroesLogoProps> = ({
       </div>
       {showSubtitle && (
         <span
-          className={`font-semibold uppercase tracking-wider ${subtitleColor} leading-tight`}
+          className={`font-semibold tracking-tight ${subtitleColor} leading-tight text-left max-w-[280px] sm:max-w-[360px] md:max-w-[440px]`}
           style={{
-            fontSize: size === 'sm' ? '8px' : size === 'lg' ? '11px' : size === 'xl' ? '12px' : '9.5px',
+            fontSize: size === 'sm' ? '7.5px' : size === 'lg' ? '10px' : size === 'xl' ? '11px' : '8.5px',
             marginTop: '2px',
+            lineHeight: 1.25,
           }}
         >
-          Fábrica de Padrões • Goiânia
+          {subtitle}
         </span>
       )}
     </div>

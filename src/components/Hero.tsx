@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
                 A Segurança de quem Fabrica. A Precisão de quem Projeta.
               </p>
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
-                Padrões monofásicos, bifásicos e trifásicos em Goiânia, desenvolvidos sob medida e 100% em conformidade com as normas da <strong className="text-white font-semibold">Equatorial Goiás</strong>. Evite atrasos de ligação e reprovações na vistoria.
+                Padrões monofásicos, trifásicos e conjuntos de medição agrupados em Goiânia, desenvolvidos sob medida e 100% em conformidade com as normas da <strong className="text-white font-semibold">Equatorial Goiás</strong>. Evite atrasos de ligação e reprovações na vistoria.
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Norma NDU-001 Equatorial 100% cumprida</span>
+                <span>Normas NT-001 Equatorial 100% cumprida</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />

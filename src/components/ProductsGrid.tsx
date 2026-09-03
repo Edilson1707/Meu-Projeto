@@ -65,7 +65,7 @@ export const ProductsGrid: React.FC = () => {
             Padrões Homologados com Entrega Imediata
           </h2>
           <p className="text-base text-slate-600 leading-relaxed">
-            Montados de acordo com a norma técnica <strong className="text-[#0056b3]">NDU 001 da Equatorial Goiás</strong>. Componentes de primeira linha, fiação dimensionada e garantia total contra reprovação na vistoria.
+            Montados de acordo com as <strong className="text-[#0056b3]">normas NT-001 da Equatorial Goiás</strong>. Componentes de primeira linha, fiação dimensionada e garantia total contra reprovação na vistoria.
           </p>
         </div>
 
@@ -260,7 +260,7 @@ export const ProductsGrid: React.FC = () => {
                   Conformidade Normativa
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed bg-blue-50/70 p-3 rounded-lg border border-blue-100">
-                  Este conjunto é fabricado em rigorosa obediência ao memorial técnico <strong>NDU 001 da Equatorial Energia Goiás</strong> e às normas <strong>NBR 5410</strong>. Aprovado para vistorias em toda a microrregião de Goiânia, Aparecida de Goiânia, Trindade e Senador Canedo.
+                  Este conjunto é fabricado em rigorosa obediência às <strong>normas NT-001 da Equatorial Energia Goiás</strong> e às normas <strong>NBR 5410</strong>. Aprovado para vistorias em toda a microrregião de Goiânia, Aparecida de Goiânia, Trindade e Senador Canedo.
                 </p>
               </div>
 

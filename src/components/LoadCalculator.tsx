@@ -10,11 +10,11 @@ export const LoadCalculator: React.FC = () => {
   const [hasHeavyLoads, setHasHeavyLoads] = useState<boolean>(false);
   const [solarPanels, setSolarPanels] = useState<boolean>(false);
 
-  // Recommendation logic based on typical Goiânia load standards (NDU 001)
+  // Recommendation logic based on typical Goiânia load standards (normas NT-001)
   const getRecommendation = () => {
     if (propertyType === 'industrial' || hasHeavyLoads || acUnits >= 4 || showers >= 3) {
       return {
-        type: 'Trifásico (NDU-001 Tipo T-3)',
+        type: 'Trifásico (normas NT-001 Tipo T-3)',
         voltage: '220V / 380V Trifásico',
         breaker: 'Disjuntor de 63A a 100A DIN / Caixa Moldada',
         power: 'Acima de 25 kW a 75 kW',
@@ -24,17 +24,17 @@ export const LoadCalculator: React.FC = () => {
       };
     } else if (propertyType === 'comercial' || acUnits >= 2 || showers >= 2 || solarPanels) {
       return {
-        type: 'Bifásico (NDU-001 Tipo B-2)',
-        voltage: '220V / 380V Bifásico',
-        breaker: 'Disjuntor de 50A a 70A DIN',
-        power: 'Até 15 kW a 20 kW',
-        description: 'Excelente equilíbrio para residências médias em Goiânia, sobrado com até 3 ar-condicionados e pequenos comércios.',
-        box: 'Caixa de Policarbonato com Visor Frontal Homologado',
-        whatsappText: `Olá! Fiz a simulação no site da Só Padrões: Meu imóvel necessita de um PADRÃO BIFÁSICO (${acUnits} ares-condicionados, ${showers} chuveiros). Gostaria de saber preço e entrega!`
+        type: 'Conjunto de Medição Agrupado',
+        voltage: '220V / 380V Trifásico com Derivações',
+        breaker: 'Disjuntores Individuais + Proteção Geral',
+        power: 'Dimensionado conforme quantidade de unidades',
+        description: 'Ideal para kitnets, sobrados, galerias e imóveis com múltiplas unidades consumidoras ou medições individuais.',
+        box: 'Conjunto de Caixas em Policarbonato Homologadas Equatorial GO',
+        whatsappText: `Olá! Fiz a simulação no site da Só Padrões: Meu imóvel necessita de um CONJUNTO DE MEDIÇÃO AGRUPADO (${acUnits} ares-condicionados, ${showers} chuveiros). Gostaria de saber preço e prazo de fabricação!`
       };
     } else {
       return {
-        type: 'Monofásico (NDU-001 Tipo M-1)',
+        type: 'Monofásico (normas NT-001 Tipo M-1)',
         voltage: '220V Fase + Neutro',
         breaker: 'Disjuntor de 40A a 63A DIN',
         power: 'Até 10 kW',

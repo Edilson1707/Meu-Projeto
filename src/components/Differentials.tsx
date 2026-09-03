@@ -12,13 +12,13 @@ export const Differentials: React.FC = () => {
     {
       icon: ShieldCheck,
       title: 'Aprovação Garantida Equatorial',
-      description: 'Projetado e montado sob as diretrizes exatas da NDU 001. Se houver qualquer divergência em vistoria por defeito de fábrica, substituímos imediatamente.',
+      description: 'Projetado e montado sob as diretrizes exatas das normas NT-001. Se houver qualquer divergência em vistoria por defeito de fábrica, substituímos imediatamente.',
       highlight: '100% de Garantia'
     },
     {
       icon: Clock,
       title: 'Agilidade Industrial (Pronta Entrega)',
-      description: 'Estoque permanente dos principais modelos monofásicos, bifásicos e trifásicos na Av. Mangabeiras, 967. Retire no mesmo dia ou receba na obra.',
+      description: 'Estoque permanente dos principais modelos monofásicos, trifásicos e conjuntos de medição agrupados na Av. Mangabeiras, 967. Retire no mesmo dia ou receba na obra.',
       highlight: 'Retirada no Mesmo Dia'
     },
     {

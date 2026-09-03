@@ -7,7 +7,7 @@ export const LocationContact: React.FC = () => {
   const [formSent, setFormSent] = useState(false);
   const [name, setName] = useState('');
   const [neighborhood, setNeighborhood] = useState('');
-  const [standardType, setStandardType] = useState('Bifásico');
+  const [standardType, setStandardType] = useState('Conjunto de Medição Agrupado');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +102,7 @@ export const LocationContact: React.FC = () => {
               {/* Navigation Action */}
               <div className="pt-2">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Av.+Mangabeiras,+967+Goi%C3%A2nia+GO"
+                  href={CONTACT_INFO.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-[#0056b3] text-slate-800 hover:text-[#0056b3] font-bold text-sm transition-all min-h-[48px]"
@@ -179,9 +179,9 @@ export const LocationContact: React.FC = () => {
                     className="w-full py-3 px-4 rounded-xl border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#0056b3] focus:border-[#0056b3]"
                   >
                     <option value="Monofásico">Monofásico (Residencial comum)</option>
-                    <option value="Bifásico">Bifásico (Casas com ar-condicionado)</option>
+                    <option value="Conjunto de Medição Agrupado">Conjunto de Medição Agrupado (Kitnets / Sobrados / Múltiplas caixas)</option>
                     <option value="Trifásico">Trifásico (Comércio / Alto padrão)</option>
-                    <option value="Agrupamento Coletivo">Agrupamento Coletivo (Prédio / Salas)</option>
+                    <option value="Agrupamento Coletivo">Agrupamento Coletivo Modular (Prédio / Grandes Empreendimentos)</option>
                     <option value="Padrão Provisório de Obra">Padrão Provisório de Obra</option>
                   </select>
                 </div>

@@ -31,7 +31,7 @@ export default function App() {
         {/* 4. Differentials of Factory Engineering (Autoridade & Economia) */}
         <Differentials />
 
-        {/* 5. Equatorial Goiás Technical Compliance (NDU-001) */}
+        {/* 5. Equatorial Goiás Technical Compliance (normas NT-001) */}
         <EquatorialCompliance />
 
         {/* 6. Interactive Load Calculator & WhatsApp Generator */}

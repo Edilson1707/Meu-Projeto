@@ -16,7 +16,7 @@ export const EquatorialCompliance: React.FC = () => {
             Conformidade Técnica Concessionária
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#1E293B]">
-            Norma NDU 001 da Equatorial Goiás: Rigor que Evita Reprovações
+            Normas NT-001 da Equatorial Goiás: Rigor que Evita Reprovações
           </h2>
           <p className="text-base text-slate-600 leading-relaxed">
             A Equatorial Goiás possui critérios rigorosos de vistoria. Um erro de milímetros na altura da caixa ou uma haste mal conectada adia a ligação de energia da sua obra por semanas.
@@ -108,7 +108,7 @@ export const EquatorialCompliance: React.FC = () => {
               </p>
             </div>
             <span className="px-3.5 py-1.5 rounded-lg bg-blue-50 text-[#0056b3] text-xs font-bold font-mono">
-              NDU 001 REV. 2024/2025
+              NORMAS NT-001 REV. 2024/2025
             </span>
           </div>
 

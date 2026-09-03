@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1 text-[#FFD700]">
               <ShieldCheck className="w-3.5 h-3.5" />
-              100% Homologado Equatorial Goiás (NDU-001)
+              100% Homologado Equatorial Goiás (normas NT-001)
             </span>
             <a href="tel:6232969402" className="hover:text-white font-semibold transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3 text-[#FFD700]" />
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between min-h-[80px] py-2.5">
           {/* Brand Logo - Só Padrões */}
           <a href="#" className="flex items-center group focus:outline-none" aria-label="Só Padrões Goiânia - Início">
             <SoPadroesLogo size="md" />

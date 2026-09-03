@@ -62,7 +62,7 @@ export const CtaSection: React.FC = () => {
         <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-blue-200">
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-[#FFD700]" />
-            100% Homologado NDU 001 Equatorial
+            100% Homologado nas normas NT-001 Equatorial
           </span>
           <span className="flex items-center gap-1.5">
             <Clock className="w-4 h-4 text-[#FFD700]" />

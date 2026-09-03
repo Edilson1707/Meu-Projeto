@@ -13,8 +13,8 @@ export const FloatingWhatsApp: React.FC = () => {
       text: 'Olá! Gostaria de um orçamento para Padrão Monofásico homologado Equatorial Goiás em Goiânia.'
     },
     {
-      title: '❄️ Padrão Bifásico (Para Ar-Condicionado)',
-      text: 'Olá! Preciso de um Padrão Bifásico para suportar ar-condicionado na minha obra em Goiânia.'
+      title: '🏢 Conjunto de Medição Agrupado',
+      text: 'Olá! Preciso de um orçamento para Conjunto de Medição Agrupado (múltiplas medições) na minha obra em Goiânia.'
     },
     {
       title: '🏢 Padrão Trifásico / Comercial',
