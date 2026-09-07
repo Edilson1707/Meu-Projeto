@@ -6,6 +6,7 @@ import { WhatsAppIcon } from './WhatsAppIcon';
 import { PRODUCTS } from '../data/mockData';
 import { ProductSpec } from '../types';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { EditableImage } from './EditableImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,16 +79,16 @@ export const ProductsGrid: React.FC = () => {
                 prod.popular ? 'border-[#0056b3] shadow-xl shadow-blue-900/10 ring-2 ring-[#0056b3]/20' : 'border-slate-200 shadow-md'
               } flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-[#0056b3] relative group`}
             >
-              {/* Product Top Image & Badge */}
+              {/* Product Top Image & Badge with Photo Editor */}
               <div className="relative h-48 overflow-hidden bg-slate-900">
-                <img
-                  src={prod.image}
+                <EditableImage
+                  slotId={`product_${prod.id}`}
                   alt={prod.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
 
                 {/* Badge */}
                 <div className="absolute top-3 left-3">
@@ -220,8 +221,18 @@ export const ProductsGrid: React.FC = () => {
               </button>
             </div>
 
+            {/* Modal Photo Preview with In-Place Photo Editor */}
+            <div className="relative h-44 bg-slate-900 border-b border-slate-200">
+              <EditableImage
+                slotId={`product_${selectedProduct.id}`}
+                alt={selectedProduct.name}
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover object-center"
+              />
+            </div>
+
             {/* Modal Specs Content */}
-            <div className="p-6 max-h-[70vh] overflow-y-auto space-y-6 text-sm text-slate-700">
+            <div className="p-6 max-h-[60vh] overflow-y-auto space-y-6 text-sm text-slate-700">
               <div>
                 <h4 className="font-heading font-bold text-base text-[#1E293B] mb-2 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-[#0056b3]" />

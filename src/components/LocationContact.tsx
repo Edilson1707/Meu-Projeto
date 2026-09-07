@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Clock, Navigation, CheckCircle2 } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { EditableImage } from './EditableImage';
 
 export const LocationContact: React.FC = () => {
   const [formSent, setFormSent] = useState(false);
@@ -39,6 +40,21 @@ export const LocationContact: React.FC = () => {
           {/* Left Column: Strategic Address & Operational Details */}
           <div className="lg:col-span-5 space-y-6">
             
+            {/* Visual Storefront Card with Photo Editor */}
+            <div className="rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm">
+              <div className="relative aspect-[16/10] w-full">
+                <EditableImage
+                  slotId="location_facade"
+                  alt="Sede física e fábrica da Só Padrões na Av. Mangabeiras, 967 em Goiânia"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover object-center"
+                />
+                <div className="absolute bottom-2 left-2 z-20 pointer-events-none bg-slate-950/85 backdrop-blur-xs px-2.5 py-1 rounded text-[11px] font-semibold text-white">
+                  Fachada da Fábrica • Av. Mangabeiras, 967
+                </div>
+              </div>
+            </div>
+
             {/* Main Physical Address Card */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
               

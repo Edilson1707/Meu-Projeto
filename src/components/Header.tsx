@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, ShieldCheck } from 'lucide-react';
+import { Phone, Menu, X, ShieldCheck, Camera } from 'lucide-react';
 import { SoPadroesLogo } from './SoPadroesLogo';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { useImageEditor } from '../context/ImageEditorContext';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openCentralGallery } = useImageEditor();
 
   const phoneDisplay = CONTACT_INFO.phoneDisplay;
   const whatsappUrl = CONTACT_INFO.getWhatsAppUrl(
@@ -27,6 +29,15 @@ export const Header: React.FC = () => {
               <ShieldCheck className="w-3.5 h-3.5" />
               100% Homologado Equatorial Goiás (normas NT-001)
             </span>
+            <button
+              type="button"
+              onClick={openCentralGallery}
+              className="text-blue-200 hover:text-white font-semibold transition-colors flex items-center gap-1 cursor-pointer bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded"
+              title="Gerenciar e editar todas as fotos do site"
+            >
+              <Camera className="w-3 h-3 text-[#FFD700]" />
+              Editor de Fotos
+            </button>
             <a href="tel:6232969402" className="hover:text-white font-semibold transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3 text-[#FFD700]" />
               {phoneDisplay}
@@ -135,6 +146,17 @@ export const Header: React.FC = () => {
             >
               Fábrica: Av. Mangabeiras, 967
             </a>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openCentralGallery();
+              }}
+              className="w-full text-left py-2.5 px-3 rounded-md hover:bg-blue-50 text-[#0056b3] font-bold transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              <Camera className="w-4 h-4 text-[#FFD700]" />
+              Editor de Fotos do Site
+            </button>
           </nav>
 
           <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
