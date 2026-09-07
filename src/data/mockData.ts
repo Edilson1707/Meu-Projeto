@@ -71,7 +71,7 @@ export const PRODUCTS: ProductSpec[] = [
     groundingRod: 'Sistema de Aterramento Equipotencializado',
     boxType: 'Módulos integrados homologados Equatorial GO',
     ramalType: 'Entrada Subterrânea ou Aérea com Poste Próprio',
-    normCode: 'NDU 002 / NTC - Equatorial GO',
+    normCode: 'normas NT-002 / NTC - Equatorial GO',
     recommendedFor: 'Prédios residenciais, centros de salas comerciais, condomínios fechados e galerias em Goiânia.',
     badge: 'Projetos Especiais',
     image: imgPadraoAgrupamento
