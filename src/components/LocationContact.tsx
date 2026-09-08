@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Clock, Navigation, CheckCircle2 } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
-import fachadaLojaImage from '../assets/images/fachada_sopadroes_real_1788453777565.jpg';
+import { EditableImage } from './EditableImage';
 
 export const LocationContact: React.FC = () => {
   const [formSent, setFormSent] = useState(false);
@@ -40,14 +40,14 @@ export const LocationContact: React.FC = () => {
           {/* Left Column: Strategic Address & Operational Details */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Visual Storefront Card */}
+            {/* Visual Storefront Card with Photo Editor */}
             <div className="rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm">
               <div className="relative aspect-[16/10] w-full">
-                <img
-                  src={fachadaLojaImage}
+                <EditableImage
+                  slotId="location_facade"
                   alt="Sede física e fábrica da Só Padrões na Av. Mangabeiras, 967 em Goiânia"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
                 <div className="absolute bottom-2 left-2 z-20 pointer-events-none bg-slate-950/85 backdrop-blur-xs px-2.5 py-1 rounded text-[11px] font-semibold text-white">

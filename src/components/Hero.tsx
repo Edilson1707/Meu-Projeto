@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ShieldCheck, ArrowRight, CheckCircle2, Factory, Zap, Clock, Award } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
-import heroStorefrontImage from '../assets/images/fachada_fundo_loja_real_1788454600037.jpg';
+import { EditableImage } from './EditableImage';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -165,13 +165,13 @@ export const Hero: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Visual Image Container */}
+                {/* Visual Image Container with Photo Editor */}
                 <div className="relative mt-3 rounded-xl overflow-hidden bg-slate-950 border border-white/10 aspect-[16/10]">
-                  <img
-                    src={heroStorefrontImage}
+                  <EditableImage
+                    slotId="hero_storefront"
                     alt="Fachada da loja e fábrica Só Padrões em Goiânia - Av. Mangabeiras, 967"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover object-top"
                     loading="eager"
                   />
                   <div className="absolute bottom-2 left-2 right-2 z-20 pointer-events-none bg-slate-950/85 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center justify-between text-xs">

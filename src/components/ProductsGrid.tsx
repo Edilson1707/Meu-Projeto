@@ -6,6 +6,7 @@ import { WhatsAppIcon } from './WhatsAppIcon';
 import { PRODUCTS } from '../data/mockData';
 import { ProductSpec } from '../types';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { EditableImage } from './EditableImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,14 +79,14 @@ export const ProductsGrid: React.FC = () => {
                 prod.popular ? 'border-[#0056b3] shadow-xl shadow-blue-900/10 ring-2 ring-[#0056b3]/20' : 'border-slate-200 shadow-md'
               } flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-[#0056b3] relative group`}
             >
-              {/* Product Top Image & Badge */}
+              {/* Product Top Image & Badge with Photo Editor */}
               <div className="relative h-48 overflow-hidden bg-slate-900">
-                <img
-                  src={prod.image}
+                <EditableImage
+                  slotId={`product_${prod.id}`}
                   alt={prod.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
 
@@ -220,13 +221,13 @@ export const ProductsGrid: React.FC = () => {
               </button>
             </div>
 
-            {/* Modal Photo Preview */}
+            {/* Modal Photo Preview with Photo Editor */}
             <div className="relative h-44 bg-slate-900 border-b border-slate-200 overflow-hidden">
-              <img
-                src={selectedProduct.image}
+              <EditableImage
+                slotId={`product_${selectedProduct.id}`}
                 alt={selectedProduct.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover object-center"
               />
             </div>
 
