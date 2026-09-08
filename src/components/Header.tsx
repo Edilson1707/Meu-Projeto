@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, ShieldCheck, Camera } from 'lucide-react';
+import { Phone, Menu, X, ShieldCheck } from 'lucide-react';
 import { SoPadroesLogo } from './SoPadroesLogo';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '../data/contactConfig';
-import { useImageEditor } from '../context/ImageEditorContext';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openGalleryModal } = useImageEditor();
 
   const phoneDisplay = CONTACT_INFO.phoneDisplay;
   const whatsappUrl = CONTACT_INFO.getWhatsAppUrl(
@@ -29,15 +27,6 @@ export const Header: React.FC = () => {
               <ShieldCheck className="w-3.5 h-3.5" />
               100% Homologado Equatorial Goiás (normas NT-001)
             </span>
-            <button
-              type="button"
-              onClick={openGalleryModal}
-              className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-[#FFD700] hover:text-white transition-colors cursor-pointer text-xs font-semibold"
-              title="Abrir editor de fotos do site"
-            >
-              <Camera className="w-3 h-3" />
-              <span>Editor de Fotos</span>
-            </button>
             <a href="tel:6232969402" className="hover:text-white font-semibold transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3 text-[#FFD700]" />
               {phoneDisplay}
