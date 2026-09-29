@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
                 A Segurança de quem Fabrica. A Precisão de quem Projeta.
               </p>
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
-                Padrões monofásicos, trifásicos e conjuntos de medição agrupados em Goiânia, desenvolvidos sob medida e 100% em conformidade com as normas da <strong className="text-white font-semibold">Equatorial Goiás</strong>. Evite atrasos de ligação e reprovações na vistoria.
+                Padrões elétricos homologados <strong className="text-white font-semibold">Equatorial Goiás</strong>, caixas de hidrômetro padrão <strong className="text-white font-semibold">SANEAGO</strong> e placas de endereço personalizadas. Monte a entrada completa da sua obra direto da fábrica em Goiânia com pronta entrega.
               </p>
             </div>
 
@@ -100,19 +100,19 @@ export const Hero: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-200 font-medium">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Pronta entrega em Goiânia e Região</span>
+                <span>Padrões Elétricos Monofásicos e Trifásicos</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Normas NT-001 Equatorial 100% cumprida</span>
+                <span>Caixa de Hidrômetro Homologada SANEAGO</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Caixas em Policarbonato Anti-UV e Aço</span>
+                <span>Placas de Endereço em ACM e Inox com Corte a Laser</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Suporte técnico de engenharia com ART</span>
+                <span>Pronta Entrega e Retirada na Fábrica</span>
               </div>
             </div>
 

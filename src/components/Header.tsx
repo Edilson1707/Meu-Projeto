@@ -19,13 +19,13 @@ export const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-[#FFD700] animate-pulse"></span>
-            <span className="font-medium text-slate-200">Fábrica Aberta em Goiânia:</span>
-            <span>Av. Mangabeiras, 967 • Pronta Entrega para toda Região Metropolitana</span>
+            <span className="font-medium text-slate-200">Fábrica em Goiânia:</span>
+            <span>Av. Mangabeiras, 967 • Padrões de Energia, Caixas SANEAGO & Placas de Endereço</span>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1 text-[#FFD700]">
               <ShieldCheck className="w-3.5 h-3.5" />
-              100% Homologado Equatorial Goiás (normas NT-001)
+              100% Homologado Equatorial & SANEAGO
             </span>
             <a href="tel:6232969402" className="hover:text-white font-semibold transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3 text-[#FFD700]" />

@@ -199,6 +199,9 @@ export const LocationContact: React.FC = () => {
                     <option value="Conjunto de Medição Agrupado">Conjunto de Medição Agrupado (Kitnets / Sobrados / Múltiplas caixas)</option>
                     <option value="Trifásico">Trifásico (Comércio / Alto padrão)</option>
                     <option value="Agrupamento Coletivo">Agrupamento Coletivo Modular (Prédio / Grandes Empreendimentos)</option>
+                    <option value="Caixa para Hidrômetro SANEAGO">Caixa para Hidrômetro Padrão SANEAGO</option>
+                    <option value="Placas de Endereço">Placa de Endereço & Numeração Predial</option>
+                    <option value="Kit Completo (Energia + Água + Placa)">Kit Completo (Padrão Elétrico + Caixa Saneago + Placa)</option>
                     <option value="Padrão Provisório de Obra">Padrão Provisório de Obra</option>
                   </select>
                 </div>

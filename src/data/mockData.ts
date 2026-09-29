@@ -3,6 +3,8 @@ import imgPadraoMonofasico from '../assets/images/caixa_medicao_taf_178844889138
 import imgPadraoBifasico from '../assets/images/padrao_bifasico_1788448844189.jpg';
 import imgPadraoTrifasico from '../assets/images/padrao_trifasico_1788448860161.jpg';
 import imgPadraoAgrupamento from '../assets/images/padrao_agrupamento_1788448876917.jpg';
+import imgCaixaHidrometroSaneago from '../assets/images/regenerated_image_1788994632612.png';
+import imgPlacasDeEndereco from '../assets/images/regenerated_image_1790713208374.png';
 
 export const PRODUCTS: ProductSpec[] = [
   {
@@ -75,6 +77,42 @@ export const PRODUCTS: ProductSpec[] = [
     recommendedFor: 'Prédios residenciais, centros de salas comerciais, condomínios fechados e galerias em Goiânia.',
     badge: 'Projetos Especiais',
     image: imgPadraoAgrupamento
+  },
+  {
+    id: 'caixa-hidrometro-saneago',
+    name: 'Caixa para Hidrômetro Padrão SANEAGO',
+    category: 'saneago',
+    voltage: 'Rede de Água Tratada (Saneago)',
+    maxPower: 'Padrão Residencial e Comercial',
+    currentRange: 'Conexões 1/2" e 3/4"',
+    breaker: 'Nicho com Fácil Acesso ao Registro Geral',
+    cableSection: 'Tubulação PEAD / PVC c/ conexões',
+    groundingRod: 'Dreno inferior e visor transparente de leitura',
+    boxType: 'Policarbonato anti-UV de alta resistência',
+    ramalType: 'Embutir em muro frontal ou mureta padrão',
+    normCode: 'Homologado Padrão SANEAGO Goiás',
+    recommendedFor: 'Ligação nova de água, reformas residenciais, sobrados, condomínios e loteamentos em Goiânia e Região Metropolitana.',
+    badge: '100% Homologado SANEAGO',
+    image: imgCaixaHidrometroSaneago,
+    popular: true
+  },
+  {
+    id: 'placas-de-endereco',
+    name: 'Placas de Endereço & Numeração Predial',
+    category: 'endereco',
+    voltage: 'Identificação Oficial Residencial e Comercial',
+    maxPower: 'Alta Durabilidade e Visibilidade',
+    currentRange: 'Personalização com Número e Logradouro',
+    breaker: 'Fixação Antivandalismo (Parafuso ou Chumbador)',
+    cableSection: 'ACM (Alumínio Composto) / Inox / Acrílico anti-UV',
+    groundingRod: 'Corte a laser de alta precisão e relevo',
+    boxType: 'Acabamento moderno (Preto fosco, inox ou espelhado)',
+    ramalType: 'Instalação em muros, fachadas, portões e pilares',
+    normCode: 'Padrão Urbanístico e Correios',
+    recommendedFor: 'Identificação clara para entregas dos Correios, aplicativos, concessionárias de serviços públicos e visitas.',
+    badge: 'Fabricação Própria',
+    image: imgPlacasDeEndereco,
+    popular: true
   }
 ];
 

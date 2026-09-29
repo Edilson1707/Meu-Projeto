@@ -1,7 +1,7 @@
 export interface ProductSpec {
   id: string;
   name: string;
-  category: 'monofasico' | 'bifasico' | 'trifasico' | 'agrupamento';
+  category: 'monofasico' | 'bifasico' | 'trifasico' | 'agrupamento' | 'saneago' | 'endereco' | string;
   voltage: string;
   maxPower: string;
   currentRange: string;
